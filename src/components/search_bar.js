@@ -4,12 +4,18 @@ class SearchBar extends Component {
     constructor (props) { 
         super(props);
 
-        this.state = { term: ''}; // record a property called 'term'
+        this.state = { term: ''}; // record a property called 'term'. 
+        //Only in the constructor we manipulate our state like this, instead we use this.setState.
     }
     
     
     render () { //every class must have a render method
-        return <input onChange={(event) => console.log(event.target.value)} />; // any input element emit a change event
+        return(
+            <div>
+                <input onChange={event => this.setState({ term: event.target.value })} />
+            </div>
+            
+        ); // The component automatically re-renders 
     }
 
 
